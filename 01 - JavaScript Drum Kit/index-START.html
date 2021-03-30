@@ -61,8 +61,10 @@
 
   function removeTransition(e) {
     if(e.propertyName !== 'transform') return;
+    console.log(1);
     console.log(this);
     this.classList.remove('playing');
+    console.log(2);
     console.log(this);
   };
   
