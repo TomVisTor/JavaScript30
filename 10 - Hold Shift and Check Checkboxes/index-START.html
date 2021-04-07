@@ -96,6 +96,38 @@
   </div>
 
 <script>
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+  let lastChecked;
+
+  function handleCheck(e) {
+    console.log(this);
+    
+    let inBetween = false;
+    if (e.shiftKey && this.checked) {
+
+      checkboxes.forEach(checkbox => {
+        if (checkbox === this || checkbox === lastChecked) {
+          inBetween = !inBetween;
+        }
+        if (inBetween) {
+          checkbox.checked = true;
+        }
+      });
+    }
+    lastChecked = this;
+  };
+
+  checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+
+
+  function multiply(e) {
+    return (e * 2);
+    console.log(this);
+  }
+  const deux = 2;
+  console.log(multiply(deux));
+
 </script>
 </body>
 </html>
